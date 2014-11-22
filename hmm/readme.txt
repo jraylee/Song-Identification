@@ -1,0 +1,2 @@
+to create the models for the test data, run song_hmm.py It will create and save each song model.
+to find how well the test and training samples match, run song_matcher.py its output is the ordered list for every sample cpmared to the most current models

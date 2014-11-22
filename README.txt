@@ -1,4 +1,6 @@
 README.txt
+Justine Lee
+
 
 TO SCRAPE ON SOUNDCLOUD:
 1. Open songs.txt and for each song that you would like at add create a new line in the following format:
@@ -14,3 +16,5 @@ run k_means_classifier.py
 $ python k_means_classifier,py
 
 The program will then prompt you for a training directory and then testing directory and output filename. 
+
+For details on the HMM please see the HMM directory.
