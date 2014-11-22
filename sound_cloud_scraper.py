@@ -1,5 +1,5 @@
 # Filename: sound_cloud_scraper.py
-# Authors: Justine Lee, Jake Utter
+# Author: Justine Lee
 # Date: 10.5.2014 
 # Description: program for scraping SoundCloud for urls of cover songs
 

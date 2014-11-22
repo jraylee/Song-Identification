@@ -1,3 +1,9 @@
+# Filename: convert_csv_to_txt.py
+#
+# Author: Justine Lee
+# 
+# Description: Used to preprocess data before piping into the Hidden Markov Model algorithm
+
 from melody_2 import Melody
 import os
 

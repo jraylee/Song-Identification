@@ -1,13 +1,18 @@
-# Justine Lee
-from melody_2 import Melody
+# Filename: model.py
+#
+# Author: Justine Lee
+#
+# Description: Wrapper fro the melody class that allows user to compare the differences between
+# to melodies
 
+from melody_2 import Melody
 
 class Model:
 	def __init__(self, training_filename):
 		self.name = training_filename.split(".")
 		self.name = self.name[:-4]
 
-		model_melody = Melody(training_filename,True)
+		model_melody = Melody(training_filename,True,2)
 		model_melody.get_notes()
 		model_melody.get_transitions()
 		model_melody.count_transitions()

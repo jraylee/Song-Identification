@@ -1,8 +1,14 @@
+#Filename: melody_2.py
+#
+# Author: Justine Lee
+#
+# Description: Class for representing the melody output from Melodia 
+
 import math
 
 class Melody:
 	
-	def __init__(self, csv_path, uncertainty_on,num_octaves):
+	def __init__(self, csv_path, uncertainty_on, num_octaves):
 		#Open csv file
 		csv_file = open(csv_path,'r')
 
@@ -10,6 +16,7 @@ class Melody:
 		self.notes = []
 		self.transitions = []
 		self.transition_dictionary = {}
+		self.num_octaves = num_octaves
 
 		for line in csv_file:
 			line_split=line.split(",")
@@ -24,7 +31,7 @@ class Melody:
 		i = 0
 		while i<len(self.frequencies):
 			note = 12*math.log((float(self.frequencies[i])/440.0),2)
-			self.notes.append(round(note)%12)
+			self.notes.append(round(note)%(12*self.num_octaves))
 			i+=1
 
 	def get_transitions(self):

@@ -1,3 +1,13 @@
+# Filename: Classifier.py
+#
+# Author: Justine Lee
+#
+# Description: Take in user input at the command line and given a training directory containing
+# the csv files of the training examples (1 csv file per song) it generates a dictionary of 
+# Model objects. Will then ask for a user specified test directory containing test csv files
+# and generates a model for each file and compares it against each Model object in the model 
+# dictionary and returns an ordered list of best matches and writes these results to a  csv file
+
 from model import Model
 import os
 from os.path import basename, abspath
@@ -15,24 +25,7 @@ class Classifier:
 				print self.models[name[0]].transition_likelihoods
 				print
 
-	def top_matches(self, test_file, num_matches):
-		test_input = open(test_file,'r')
-		test_sequence = []
-		for line in test_input:
-			test_sequence.append(int(line.strip()))
-
-		likelihoods = {}
-
-		for model in self.models:
-			likelihoods[model] = self.models[model].compute_likelihood(test_sequence)
-
-		test_input.close()
-		print likelihoods
-
-		return max(likelihoods, key=likelihoods.get)
-
-
-	def top_matches_2(self, test_file, num_matches, write_out = False):
+	def top_matches(self, test_file, num_matches, write_out = False):
 		other_model = Model(test_file)
 
 		differences = {}
@@ -78,7 +71,7 @@ while 1:
 				print file
 				outfile.write(file+"\n")
 				name = basename(file).split('.')
-				differences = classifier_1.top_matches_2(test_directory+"/"+file,2,True)
+				differences = classifier_1.top_matches(test_directory+"/"+file,2,True)
 
 				matches = sorted(differences.items(), key=itemgetter(1))
 
